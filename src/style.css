@@ -84,6 +84,36 @@ body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"
   clip-path:inset(0 0% 0 0);
 }
 
+.btn-change-name {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(28, 21, 17, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 20px;
+  color: #f7e7b4;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+.btn-change-name:hover {
+  background: rgba(42, 32, 25, 0.95);
+  border-color: rgba(212, 175, 55, 0.85);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 /* Nội dung thư viết tay trên nền giấy vintage */
 #txt{
   position:absolute;

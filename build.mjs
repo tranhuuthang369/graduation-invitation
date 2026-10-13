@@ -34,8 +34,11 @@ for (let i = 1; i <= 4; i++) {
 
 const distPath = path.join(distDir, 'thiep-tot-nghiep.html');
 fs.writeFileSync(distPath, html, 'utf-8');
-// Also write to root thiep-tot-nghiep.html
+fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf-8');
+
+// Also write to root for GitHub Pages
 fs.writeFileSync('thiep-tot-nghiep.html', html, 'utf-8');
+fs.writeFileSync('index.html', html, 'utf-8');
 
 const stats = fs.statSync(distPath);
 console.log(`Build complete! Output: ${distPath} (${stats.size} bytes / ${(stats.size / 1024).toFixed(1)} KB)`);

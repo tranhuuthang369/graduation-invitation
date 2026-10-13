@@ -12,7 +12,7 @@ const CONFIG = {
     autoStep3to4: 1800,        // Tự chuyển bước 3 sang bước 4 sau 1.8s
     highlightDelay: 1600,      // Bắt đầu tô vàng tên sau khi dòng 1 hiện
     highlightDuration: 1200,   // Thời lượng hiệu ứng bút dạ quang (1.2s)
-    endActionsDelay: 3800,     // Hiện 2 nút tiện ích (Lịch & Bản đồ) sau khi đọc xong
+    endActionsDelay: 2200,     // Hiện 2 nút tiện ích (Lịch & Bản đồ) sau khi đọc xong ~2s
     petalsDuration: 9000       // Thời gian cánh hoa hồng rơi (9s)
   },
   particles: {
@@ -287,10 +287,19 @@ function initFX() {
   // 4 Planes chính tương ứng 4 Frames
   const planes = [];
   [1, 2, 3, 4].forEach((idx) => {
-    const mat = new T.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false, visible: false });
+    const mat = new T.MeshBasicMaterial({ transparent: true, opacity: (idx === 1 ? 1 : 0), depthWrite: false, visible: false });
     const mesh = new T.Mesh(new T.PlaneGeometry(W * 1.04, H * 1.04), mat);
     mesh.renderOrder = idx;
-    mesh.userData = { o: 0 };
+    mesh.userData = {
+      o: (idx === 1 ? 1 : 0),
+      scale: (idx === 2 ? 0.35 : 1.04),
+      x: (idx === 2 ? -45 : 0),
+      y: (idx === 2 ? -160 : 0),
+      ry: (idx === 2 ? 0.35 : 0),
+      rx: 0
+    };
+    mesh.scale.setScalar(mesh.userData.scale);
+    mesh.position.set(mesh.userData.x, mesh.userData.y, idx * 0.4);
     sc.add(mesh);
     planes.push(mesh);
 
@@ -488,14 +497,67 @@ function initFX() {
     cam.position.set(cx, cy, cz);
     cam.lookAt(0, 0, 0);
 
-    // Crossfade và scale từng frame
+    // Crossfade và scale từng frame theo đường cong Bezier và Dolly Zoom
     planes.forEach((p, idx) => {
       const u = p.userData;
-      const targetOp = (currentStep >= idx + 1) ? 1 : 0;
-      u.o += (targetOp - u.o) * (1 - Math.exp(-dt * (idx ? 2.2 : 1.2)));
+      let targetOp = 0;
+      let targetScale = 1.04;
+      let targetX = 0;
+      let targetY = 0;
+      let targetRy = 0;
+      let targetRx = 0;
+
+      if (idx === 0) {
+        // Frame 1: Ghế đá (Dolly in khi rời bước 1)
+        targetOp = (currentStep === 1) ? 1 : 0;
+        if (currentStep >= 2) {
+          targetScale = 2.4;
+          targetX = 65;
+          targetY = 160;
+        } else {
+          targetScale = 1.04;
+          targetX = 0;
+          targetY = 0;
+        }
+      } else if (idx === 1) {
+        // Frame 2: Phong bì to (Bay theo đường cong Bezier từ ghế ra giữa màn hình)
+        targetOp = (currentStep === 2) ? 1 : 0;
+        if (currentStep >= 2) {
+          targetScale = 1.04;
+          targetX = 0;
+          targetY = 0;
+          targetRy = 0;
+        } else {
+          targetScale = 0.35;
+          targetX = -45;
+          targetY = -160;
+          targetRy = 0.35;
+        }
+      } else if (idx === 2) {
+        // Frame 3: Nắp phong bì mở (Lật 3D)
+        targetOp = (currentStep === 3) ? 1 : 0;
+        targetScale = (currentStep >= 4) ? 0.94 : 1.04;
+        targetY = (currentStep >= 4) ? -35 : 0;
+        targetRx = (currentStep === 3) ? -0.06 : 0;
+      } else if (idx === 3) {
+        // Frame 4: Bức thư trải ra cổ điển (Trượt từ phong bì lên)
+        targetOp = (currentStep >= 4) ? 1 : 0;
+        targetScale = 1.04;
+        targetY = (currentStep >= 4) ? 0 : -75;
+      }
+
+      u.o += (targetOp - u.o) * (1 - Math.exp(-dt * (idx === 3 ? 3.2 : 2.5)));
+      u.scale += (targetScale - u.scale) * (1 - Math.exp(-dt * 2.8));
+      u.x += (targetX - u.x) * (1 - Math.exp(-dt * 2.8));
+      u.y += (targetY - u.y) * (1 - Math.exp(-dt * 2.8));
+      u.ry += (targetRy - u.ry) * (1 - Math.exp(-dt * 2.8));
+      u.rx += (targetRx - u.rx) * (1 - Math.exp(-dt * 2.8));
+
       p.material.opacity = u.o;
-      p.scale.setScalar(1 + 0.05 * (1 - u.o));
-      p.position.z = idx * 0.4;
+      p.scale.setScalar(u.scale);
+      p.position.set(u.x, u.y, idx * 0.4);
+      p.rotation.y = u.ry;
+      p.rotation.x = u.rx;
     });
 
     if (currentStep >= 4) {
@@ -593,17 +655,25 @@ try {
 setTimeout(() => { goToStep(1); }, 80);
 
 // =========================================================================
-// 5. TƯƠNG TÁC CHẠM BẤT KỲ ĐÂU ĐỂ ĐI TIẾP (Chống bấm đúp)
+// 5. TƯƠNG TÁC CHẠM BẤT KỲ ĐÂU ĐỂ ĐI TIẾP (Chống bấm đúp & Hỗ trợ Mobile)
 // =========================================================================
 let isBusy = false;
-st.addEventListener('click', function(e) {
-  // Hiệu ứng vòng tròn lan tỏa tại vị trí chạm (Ripple effect)
+let lastAdvanceTime = 0;
+
+function handleStageAdvance(e) {
+  if (e.target.closest('#btnCal, #btnMap, #btnChangeName, .btn, input, a')) return;
+  const now = Date.now();
+  if (now - lastAdvanceTime < 450) return;
+  lastAdvanceTime = now;
+
   const rect = st.getBoundingClientRect();
   const scale = rect.width / 393;
+  const cx = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : rect.left + rect.width / 2);
+  const cy = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : rect.top + rect.height / 2);
   const rip = document.createElement('div');
   rip.className = 'rip';
-  rip.style.left = ((e.clientX - rect.left) / scale) + 'px';
-  rip.style.top = ((e.clientY - rect.top) / scale) + 'px';
+  rip.style.left = ((cx - rect.left) / scale) + 'px';
+  rip.style.top = ((cy - rect.top) / scale) + 'px';
   st.appendChild(rip);
   setTimeout(() => { rip.remove(); }, 850);
 
@@ -619,6 +689,9 @@ st.addEventListener('click', function(e) {
       isBusy = false;
     }, CONFIG.timings.autoStep3to4);
   }
-});
+}
+
+card.addEventListener('pointerdown', handleStageAdvance);
+card.addEventListener('click', handleStageAdvance);
 
 })();
