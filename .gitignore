@@ -1,0 +1,7 @@
+cloudflared.exe
+*.log
+test_*.py
+run_test_suite.py
+shots/
+backup/
+dist/

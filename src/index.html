@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thư mời tốt nghiệp – Vĩnh Bảo</title>
+<meta name="theme-color" content="#2a211c">
+<meta name="description" content="Trân trọng kính mời bạn đến dự lễ tốt nghiệp của Vĩnh Bảo – 17/10/2026">
+
+<!-- Open Graph & Social Sharing -->
+<meta property="og:title" content="Thư mời tốt nghiệp – Vĩnh Bảo">
+<meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ tốt nghiệp của Vĩnh Bảo – 17/10/2026">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://distributor-earnings-worker-antiques.trycloudflare.com/">
+<meta property="og:image" content="https://distributor-earnings-worker-antiques.trycloudflare.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thư mời tốt nghiệp – Vĩnh Bảo">
+<meta name="twitter:description" content="Trân trọng kính mời bạn đến dự lễ tốt nghiệp của Vĩnh Bảo – 17/10/2026">
+<meta name="twitter:image" content="https://distributor-earnings-worker-antiques.trycloudflare.com/og.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="gen" hidden>
+  <h1>💌 Tạo link thiệp tốt nghiệp</h1>
+  <p>Nhập tên người nhận, bấm sao chép rồi gửi qua Zalo / Messenger. Khi mở link, thiệp sẽ hiện đúng tên người đó.</p>
+  <label for="name">Tên người nhận</label>
+  <input id="name" maxlength="40" autocomplete="off" placeholder="Ví dụ: Anh Minh, Cô Lan, Hùng…">
+  <div id="link"></div>
+  <div class="row">
+    <button class="btn p" id="copy">Sao chép link</button>
+    <button class="btn" id="share" hidden>Chia sẻ</button>
+    <a class="btn" id="view" target="_blank" rel="noopener">Xem thử</a>
+  </div>
+  <div id="ok" role="status"></div>
+</main>
+
+<div id="card" data-step="1">
+  <div id="stage">
+    <img class="f" id="f1" alt="" src="../assets/f1.webp">
+    <img class="f" id="f2" alt="" src="../assets/f2.webp">
+    <img class="f" id="f3" alt="" src="../assets/f3.webp">
+    <img class="f" id="f4" alt="" src="../assets/f4.webp">
+    <div class="cap">Thư mời dành cho <span id="capn"></span></div>
+    <button class="hit" id="h1" aria-label="Mở thư" style="left:55px;top:598px;width:110px;height:80px"></button>
+    <div class="hint h1" style="left:55px;top:610px;width:110px"><div class="ring"></div>Chạm để mở thư</div>
+    <button class="hit" id="h2" aria-label="Mở phong bì" style="left:85px;top:365px;width:215px;height:130px"></button>
+    <div class="hint h2" style="left:96px;top:505px;width:190px"><div class="ring"></div>Chạm để mở phong bì</div>
+    
+    <!-- Nội dung bức thư -->
+    <div id="txt"></div>
+
+    <!-- 2 nút hành động kết thư -->
+    <div id="endActions" class="end-actions" hidden>
+      <button class="act-btn cal-btn" id="btnCal" title="Lưu vào lịch">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Thêm vào lịch</span>
+      </button>
+      <a class="act-btn map-btn" id="btnMap" target="_blank" rel="noopener" href="https://maps.google.com/?q=Đại+học+Tôn+Đức+Thắng+19+Nguyễn+Hữu+Thọ+Tân+Hưng+Quận+7" title="Xem vị trí trường">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>Chỉ đường</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

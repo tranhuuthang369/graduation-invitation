@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Thiệp Mời Lễ Tốt Nghiệp | Vĩnh Bảo (Vin)</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Thiệp mời tham dự Lễ Tốt Nghiệp của Vĩnh Bảo (Vin) tại Trường Đại học Tôn Đức Thắng vào ngày 17/10/2026.">
+  <meta property="og:title" content="Thiệp Mời Lễ Tốt Nghiệp - Vĩnh Bảo (Vin)">
+  <meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ tốt nghiệp vào ngày 17/10/2026 tại ĐH Tôn Đức Thắng.">
+  <meta property="og:image" content="assets/step2_envelope_sealed.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Vintage & Calligraphy typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Audio & Sound Control -->
+  <div class="audio-control" id="audioToggleBtn" title="Bật/Tắt nhạc nền" aria-label="Bật/Tắt nhạc nền">
+    <div class="vinyl-disc">
+      <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+    </div>
+    <span class="music-label">Nhạc nền</span>
+  </div>
+
+  <!-- Creator Tool Toggle (Dành cho Vĩnh Bảo tạo link hàng loạt) -->
+  <button class="creator-tool-btn" id="openGeneratorBtn" title="Công cụ tạo link gửi bạn bè">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+    <span>Tạo link gửi bạn</span>
+  </button>
+
+  <!-- Main Experience Container -->
+  <main class="experience-viewport" id="experienceViewport">
+    
+    <!-- Stage Frame: Chứa các layer hình ảnh thiết kế chuẩn từ Figma -->
+    <div class="invitation-stage" id="invitationStage">
+
+      <!-- Scene 1: Bối cảnh ghế đá & phong bì từ xa -->
+      <div class="stage-frame step-1-frame" id="frameStep1">
+        <img src="assets/step1_bench.png" alt="Bối cảnh thiệp trên ghế" class="stage-img">
+        <button class="bench-letter-hotspot" id="benchHotspot" title="Chạm để nhận thiệp">
+          <span class="pulse-ring"></span>
+          <span class="pulse-ring delay-1"></span>
+          <span class="hotspot-label">Chạm để mở thiệp</span>
+        </button>
+      </div>
+
+      <!-- Scene 2: Phong bì phóng to giữa màn hình có con dấu sáp & thẻ tên khách mời -->
+      <div class="stage-frame step-2-frame hidden" id="frameStep2">
+        <img src="assets/step2_envelope_sealed.png" alt="Phong bì niêm phong" class="stage-img">
+        
+        <!-- Thẻ tên khách mời xuất hiện trang trọng trước khi mở thư -->
+        <div class="personalized-tag" id="envelopePersonalizedTag">
+          <div class="tag-ribbon">
+            <span class="tag-prefix">Kính gửi</span>
+            <span class="tag-name" id="tagRecipientName">Bạn thân mến</span>
+          </div>
+          <div class="tag-sub">Chạm vào con dấu sáp để mở thư</div>
+        </div>
+
+        <!-- Hotspot con dấu sáp để bấm mở nắp -->
+        <button class="seal-hotspot" id="sealHotspot" title="Mở con dấu niêm phong" aria-label="Mở con dấu niêm phong">
+          <span class="seal-glow"></span>
+        </button>
+      </div>
+
+      <!-- Scene 3: Nắp phong bì mở ra chuẩn bị rút thư -->
+      <div class="stage-frame step-3-frame hidden" id="frameStep3">
+        <img src="assets/step3_envelope_open.png" alt="Phong bì mở nắp" class="stage-img">
+        <div class="opening-indicator">Đang mở bức thư...</div>
+      </div>
+
+      <!-- Scene 4 & 5: Bức thư da vintage với hoa hồng khô và nội dung chính -->
+      <div class="stage-frame step-4-frame hidden" id="frameStep4">
+        <!-- Ảnh gốc từ Figma -->
+        <img src="assets/step4_letter_parchment.png" alt="Nội dung thiệp mời tốt nghiệp" class="stage-img" id="letterImg">
+
+        <!-- Overlay cá nhân hóa tên khách mời trang trọng trên bức thiệp -->
+        <div class="letter-personalization-badge" id="letterPersonalizationBadge">
+          <span class="badge-icon">✦</span>
+          <span class="badge-text">Thư gửi riêng đến: <strong id="letterRecipientName">Bạn</strong></span>
+          <span class="badge-icon">✦</span>
+        </div>
+
+        <!-- Các nút tiện ích khi đã mở thư -->
+        <div class="letter-actions-bar" id="letterActionsBar">
+          <button class="action-pill calendar-pill" id="addToCalendarBtn" title="Lưu vào lịch Google Calendar">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Thêm vào Lịch</span>
+          </button>
+
+          <a class="action-pill map-pill" href="https://maps.google.com/?q=Đại+học+Tôn+Đức+Thắng+19+Nguyễn+Hữu+Thọ+Tân+Hưng+Quận+7" target="_blank" rel="noopener" title="Xem bản đồ địa điểm">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Chỉ đường</span>
+          </a>
+
+          <button class="action-pill text-toggle-pill" id="viewTextModalBtn" title="Xem dạng văn bản & Copy">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>Chi tiết</span>
+          </button>
+
+          <button class="action-pill replay-pill" id="replayBtn" title="Xem lại từ đầu">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>Xem lại</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Hướng dẫn điều khiển góc dưới màn hình -->
+    <footer class="bottom-guidance" id="bottomGuidance">
+      <div class="guidance-chip" id="guidanceChip">
+        <span class="sparkle">✨</span>
+        <span id="guidanceText">Chạm vào phong bì trên ghế để nhận thư</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal: Công cụ tạo link cá nhân hóa hàng loạt cho Vĩnh Bảo -->
+  <div class="modal-overlay hidden" id="generatorModal">
+    <div class="generator-card" role="dialog" aria-labelledby="modalTitle">
+      <div class="generator-header">
+        <div class="header-title-group">
+          <span class="gold-icon">💌</span>
+          <h2 id="modalTitle">Tạo Link Thiệp Mời Riêng Từng Người</h2>
+        </div>
+        <button class="close-modal-btn" id="closeGeneratorBtn" aria-label="Đóng">&times;</button>
+      </div>
+
+      <div class="generator-body">
+        <p class="generator-intro">
+          Nhập tên bạn bè bên dưới để tạo đường link có <strong>tên người nhận xuất hiện trang trọng</strong> trên mặt phong bì và thư mời!
+        </p>
+
+        <!-- Tab chuyển đổi: Tạo 1 người / Tạo hàng loạt -->
+        <div class="tabs-nav">
+          <button class="tab-btn active" id="tabSingleBtn">Tạo 1 Bạn</button>
+          <button class="tab-btn" id="tabBulkBtn">Tạo Hàng Loạt (Danh sách)</button>
+        </div>
+
+        <!-- Panel 1: Tạo nhanh cho 1 người -->
+        <div class="tab-panel active" id="panelSingle">
+          <div class="input-group">
+            <label for="recipientInput">Tên người nhận (ví dụ: Minh Anh, Thầy Tuấn, Bé Linh):</label>
+            <div class="input-with-button">
+              <input type="text" id="recipientInput" placeholder="Nhập tên người bạn muốn gửi..." autocomplete="off">
+              <button class="primary-btn" id="generateSingleBtn">Tạo Link</button>
+            </div>
+          </div>
+
+          <div class="result-box hidden" id="singleResultBox">
+            <div class="result-label">Link riêng cho <strong id="resultRecipientName">...</strong>:</div>
+            <div class="link-display-row">
+              <input type="text" id="generatedLinkInput" readonly>
+              <button class="copy-btn" id="copySingleLinkBtn">Sao chép</button>
+            </div>
+            
+            <div class="quick-share-actions">
+              <a href="#" class="share-btn zalo-btn" id="shareZaloBtn" target="_blank" rel="noopener">
+                Chia sẻ Zalo
+              </a>
+              <a href="#" class="share-btn test-btn" id="testLinkBtn" target="_blank">
+                Mở thử xem trước
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Tạo danh sách hàng loạt -->
+        <div class="tab-panel hidden" id="panelBulk">
+          <div class="input-group">
+            <label for="bulkTextarea">Dán danh sách tên (mỗi người 1 dòng):</label>
+            <textarea id="bulkTextarea" rows="4" placeholder="Minh Anh&#10;Quốc Tuấn&#10;Ngọc Mai&#10;Thanh Trúc"></textarea>
+          </div>
+          <button class="primary-btn full-width" id="generateBulkBtn">Tạo toàn bộ danh sách link</button>
+
+          <div class="bulk-results-list hidden" id="bulkResultsList">
+            <!-- Render danh sách link động ở đây -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Xem toàn bộ nội dung thiệp dạng văn bản rõ nét & nút copy -->
+  <div class="modal-overlay hidden" id="textDetailsModal">
+    <div class="details-card">
+      <div class="details-header">
+        <h3>Nội Dung Thư Mời Lễ Tốt Nghiệp</h3>
+        <button class="close-modal-btn" id="closeTextModalBtn">&times;</button>
+      </div>
+      <div class="details-body">
+        <div class="quote-box">
+          <p class="details-p">Trước một cột mốc đáng nhớ, sự hiện diện của <strong class="guest-name-text">Bạn</strong> trong ngày vui này chính là món quà ý nghĩa nhất đối với Vĩnh Bảo.</p>
+          <p class="details-p highlight-p">Trân trọng kính mời <strong class="guest-name-text">Bạn</strong> đến dự lễ tốt nghiệp của <strong>Vĩnh Bảo</strong>.</p>
+          <div class="meta-row">
+            <span class="meta-icon">⏰</span>
+            <span><strong>Khung giờ:</strong> 15h30 đến 17h30</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📅</span>
+            <span><strong>Ngày:</strong> Thứ Bảy, 17 tháng 10 năm 2026</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📍</span>
+            <span><strong>Địa điểm:</strong> Trường Đại học Tôn Đức Thắng (số 19 Đường Nguyễn Hữu Thọ, Phường Tân Hưng, Thành phố Hồ Chí Minh)</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📞</span>
+            <span><strong>Liên hệ:</strong> <a href="tel:0859901709">0859901709</a> hoặc <a href="tel:0869200422">0869200422</a></span>
+          </div>
+          <p class="details-p footer-p">Chúc bạn thật nhiều sức khỏe.<br><em>Vin trân trọng cảm ơn.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast thông báo nhỏ xinh -->
+  <div class="toast-notification hidden" id="toastNotification">
+    <span class="toast-icon">✓</span>
+    <span class="toast-msg" id="toastMessage">Đã sao chép đường link!</span>
+  </div>
+
+  <!-- Canvas hiệu ứng pháo hoa / cánh hoa rơi khi mở thiệp -->
+  <canvas id="effectsCanvas" class="effects-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
