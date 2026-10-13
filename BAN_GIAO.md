@@ -1,115 +1,68 @@
-# TÀI LIỆU BÀN GIAO – THIỆP MỜI TỐT NGHIỆP ĐIỆN ẢNH (THREE.JS)
+# TÀI LIỆU BÀN GIAO – THIỆP MỜI TỐT NGHIỆP ĐIỆN ẢNH (FIGMA & THREE.JS)
 
-**Chủ nhân buổi lễ:** Vĩnh Bảo  
-**Thời gian:** 17/10/2026  
+**Chủ nhân buổi lễ:** Vĩnh Bảo (Vin)  
+**Thời gian:** 15h30 – 17h30, Thứ Bảy ngày 17/10/2026  
 **Địa điểm:** Trường Đại học Tôn Đức Thắng, số 19 Nguyễn Hữu Thọ, P. Tân Hưng, TP.HCM  
 **Hotline:** 0859901709 | 0869200422  
+**Mã nguồn GitHub:** [`https://github.com/tranhuuthang369/graduation-invitation`](https://github.com/tranhuuthang369/graduation-invitation)  
 
 ---
 
-## 1. Đường dẫn công khai (Live URLs) & QR Code
+## 1. Đường dẫn công khai trên GitHub Pages & Mã QR
 
-Trang web đã được deploy công khai với kết nối HTTPS bảo mật, độ trễ thấp qua hạ tầng Cloudflare Edge, hỗ trợ đầy đủ Open Graph preview trên Messenger và Zalo:
+Trang web đã được deploy chính thức lên **GitHub Pages** với kết nối HTTPS chuẩn quốc tế, tốc độ tải tức thì trên mọi điện thoại (iPhone, Android, Messenger & Zalo in-app webview):
 
-- **Trang tạo link mời riêng (Không tham số `?to=`):**  
-  👉 **Link:** `https://distributor-earnings-worker-antiques.trycloudflare.com/`  
+- **Trang thiệp mời trực tiếp:**  
+  👉 **Link:** `https://tranhuuthang369.github.io/graduation-invitation/`  
   📌 **Mã QR:** [`qr/qr-base.png`](file:///c:/Users/Admin/.gemini/antigravity-ide/scratch/graduation-invitation/qr/qr-base.png)  
-  *(Người dùng có thể nhập tên khách mời bất kỳ, xem thử trước và nhấn "Sao chép link" hoặc "Chia sẻ")*
+  *(Có nút "Tạo link gửi bạn" ở góc trên bên phải để tạo link riêng từng người hoặc danh sách hàng loạt)*
 
 - **Mẫu 1: Gửi cho Anh Minh:**  
-  👉 **Link:** `https://distributor-earnings-worker-antiques.trycloudflare.com/?to=Anh%20Minh`  
+  👉 **Link:** `https://tranhuuthang369.github.io/graduation-invitation/?to=Anh%20Minh`  
   📌 **Mã QR:** [`qr/qr-anh-minh.png`](file:///c:/Users/Admin/.gemini/antigravity-ide/scratch/graduation-invitation/qr/qr-anh-minh.png)
 
 - **Mẫu 2: Gửi cho Cô Hằng:**  
-  👉 **Link:** `https://distributor-earnings-worker-antiques.trycloudflare.com/?to=C%C3%B4%20H%E1%BA%B1ng`  
+  👉 **Link:** `https://tranhuuthang369.github.io/graduation-invitation/?to=C%C3%B4%20H%E1%BA%B1ng`  
   📌 **Mã QR:** [`qr/qr-co-hang.png`](file:///c:/Users/Admin/.gemini/antigravity-ide/scratch/graduation-invitation/qr/qr-co-hang.png)
 
 - **Mẫu 3: Thiệp chung (không chỉ định tên):**  
-  👉 **Link:** `https://distributor-earnings-worker-antiques.trycloudflare.com/?to=`  
+  👉 **Link:** `https://tranhuuthang369.github.io/graduation-invitation/?to=`  
   *(Tự động hiển thị từ "Bạn" lịch thiệp)*
 
 ---
 
-## 2. Mẫu tin nhắn gửi qua Messenger / Zalo
+## 2. Hoạt ảnh chuyển cảnh điện ảnh 4 giai đoạn
 
-Bạn có thể sao chép trực tiếp các mẫu tin nhắn dưới đây để gửi cho người thân, bạn bè và thầy cô:
+1. **Giai đoạn 1 (Chiếc phong bì trên ghế đá cổ kính):**
+   - Vòng tròn phát sáng nhấp nháy tại phong bì.
+   - **Chạm bất kỳ đâu trên màn hình**: Camera **Dolly Zoom** lao vút về phía trước (`scale(4.2)` với gia tốc mượt mà), chuyển cảnh sang phong bì to.
+2. **Giai đoạn 2 (Phong bì to có con dấu sáp đỏ "VB"):**
+   - Phong bì phóng to giữa màn hình kèm **thẻ tên khách mời** trang trọng (`Kính gửi: Anh Minh`).
+   - Con dấu sáp có vòng hào quang xoay tròn.
+   - **Chạm vào con dấu hoặc chạm bất kỳ đâu**: Con dấu rung nứt, **bắn ra hơn 90 tia lửa vàng lấp lánh (Spark Explosion)** kèm âm thanh vỡ dấu sáp giòn tan!
+3. **Giai đoạn 3 (Nắp phong bì mở ra):**
+   - Nắp phong bì mở bung trong 0.8s, tự động kích hoạt bước kéo thư.
+4. **Giai đoạn 4 (Bức thư giấy da vút lên & Chúc mừng):**
+   - Bức thư vintage trượt từ trong lòng phong bì bay lên giữa màn hình.
+   - Cánh hoa hồng đỏ và bụi nắng hoàng hôn bay lượn lãng mạn.
+   - Dòng tên người nhận trên thiệp được quét vệt dạ quang vàng kim (`highlight sweep`).
+   - **Pháo hoa bụi vàng rực rỡ** bắn lên chào mừng.
+   - Nhạc nền acoustic piano du dương tự động ngân nga (có nút đĩa than xoay ở góc trên bên trái để bật/tắt).
+   - Nút **"Thêm vào Lịch"** (tạo sự kiện lịch), **"Chỉ đường"** (Google Maps), **"Chi tiết"** và nút **"Xem lại"** (Replay lại từ đầu).
 
-### Mẫu dành cho Bạn bè / Anh chị em:
+---
+
+## 3. Mẫu tin nhắn gửi qua Messenger / Zalo
+
 ```text
 Thân gửi [Tên người nhận],
 
-Hành trình giảng đường của mình đã đến ngày hái quả ngọt! Trân trọng mời [Tên người nhận] đến chung vui cùng mình trong Lễ Tốt Nghiệp:
+Hành trình đại học của mình đã đến ngày hái quả ngọt! Trân trọng mời [Tên người nhận] đến chung vui cùng mình trong Lễ Tốt Nghiệp:
 
-⏰ Thời gian: Thứ Bảy, ngày 17/10/2026
-📍 Địa điểm: Trường Đại học Tôn Đức Thắng, số 19 Nguyễn Hữu Thọ, P. Tân Hưng, TP.HCM
-🔗 Thiệp mời đặc biệt dành riêng cho bạn:
-https://distributor-earnings-worker-antiques.trycloudflare.com/?to=[Tên_người_nhận]
+⏰ Thời gian: 15h30 – 17h30, Thứ Bảy ngày 17/10/2026
+📍 Địa điểm: Trường ĐH Tôn Đức Thắng, số 19 Nguyễn Hữu Thọ, P. Tân Hưng, TP.HCM
+💌 Thiệp mời đặc biệt dành riêng cho bạn:
+https://tranhuuthang369.github.io/graduation-invitation/?to=[Tên_người_nhận]
 
 Sự hiện diện của bạn là niềm vinh hạnh và kỷ niệm vô giá đối với mình!
 ```
-
-### Mẫu dành cho Thầy Cô / Người lớn tuổi:
-```text
-Kính gửi [Thầy/Cô/Cô Chú],
-
-Em xin trân trọng kính mời [Thầy/Cô/Cô Chú] đến tham dự Lễ Tốt Nghiệp của em:
-
-⏰ Thời gian: 17/10/2026
-📍 Địa điểm: Trường ĐH Tôn Đức Thắng, số 19 Nguyễn Hữu Thọ, P. Tân Hưng, TP.HCM
-💌 Thư mời trang trọng gửi tới [Thầy/Cô/Cô Chú]:
-https://distributor-earnings-worker-antiques.trycloudflare.com/?to=[Tên_người_nhận]
-
-Kính chúc [Thầy/Cô/Cô Chú] luôn dồi dào sức khỏe và hạnh phúc!
-```
-
----
-
-## 3. Các tính năng điện ảnh & kỹ thuật đã hoàn thiện
-
-1. **Hiệu ứng Three.js Cinematic:**
-   - Hạt bụi nắng lơ lửng (85 particles) và lá vàng rơi khẽ (10 leaves).
-   - Chiếu vệt nắng xiên hoàng hôn (Sunrays) dịu nhẹ.
-   - Hiệu ứng camera dolly mượt mà từ khung ghế đá thu nhỏ tiến sâu vào phong bì thư.
-   - Vết sáp niêm phong tan chảy phát tán tia lấp lánh (spark burst).
-   - 18 cánh hoa hồng rơi sau nền thư ở Bước 4.
-   - Chữ viết tay Dancing Script lộ nét từ từ (`clip-path`).
-   - Tên khách mời được đổi chính xác ở 3 vị trí trong thư, kèm hiệu ứng bút dạ quang (highlighter sweep) màu vàng ấm sau khi mở thiệp.
-2. **Tiện ích tương tác ở Bước 4:**
-   - Nút **"Thêm vào lịch"**: Tự động tạo và tải file `.ics` chuẩn Quốc tế, mở thẳng trên Apple Calendar và Google Calendar.
-   - Nút **"Chỉ đường"**: Mở trực tiếp bản đồ Google Maps chỉ đường tới Đại học Tôn Đức Thắng.
-   - 2 số điện thoại liên hệ là liên kết `tel:` bấm gọi tức thì trên điện thoại.
-3. **Khả năng tương thích & Dự phòng (Fallback):**
-   - Hỗ trợ đầy đủ màn hình Dark Mode và Light Mode.
-   - Tự động kích hoạt cơ chế CSS Fallback mượt mà nếu máy tắt WebGL hoặc bật chế độ giảm chuyển động (`prefers-reduced-motion`).
-   - Toàn bộ ảnh nền và icon được nhúng base64 WebP bên trong 1 file HTML duy nhất (~385 KB), tải tức thì không phụ thuộc asset ngoài.
-   - Ảnh chia sẻ đại diện Open Graph `og.jpg` (1200×630px) chuẩn tỷ lệ vàng của Facebook/Zalo.
-
----
-
-## 4. Checklist kiểm tra thực tế trên điện thoại (Messenger / Zalo)
-
-| Hạng mục kiểm tra | Mô tả thao tác | Kết quả mong đợi |
-| :--- | :--- | :--- |
-| **Ảnh đại diện link** | Dán link vào ô chat Zalo hoặc Messenger | Khung xem trước hiện ảnh `og.jpg` trang trọng và tiêu đề thư mời |
-| **Chạm mở thư** | Chạm nhẹ vào bất kỳ điểm nào trên màn hình | Camera Three.js lướt êm vào phong bì, tia sáng bung tỏa |
-| **Cá nhân hóa tên** | Quan sát 3 dòng chữ trong thư mời | Hiện đúng tên khách mời (không bị che khuất hay tràn chữ) |
-| **Nút "Thêm vào lịch"** | Bấm nút ở cuối thiệp | Điện thoại hỏi thêm sự kiện 17/10/2026 vào Lịch |
-| **Nút "Chỉ đường"** | Bấm nút ở cuối thiệp | Mở Google Maps định vị trường Tôn Đức Thắng |
-| **Nghiêng điện thoại (Gyro)** | Nghiêng nhẹ máy qua lại (sau khi cho phép cảm biến) | Cảnh nền và hạt nắng chuyển động thị sai (Parallax) 3D sống động |
-
----
-
-## 5. Hướng dẫn Rebuild & Re-deploy khi cần sửa đổi
-
-Nếu sau này bạn muốn thay đổi bất kỳ nội dung nào trong thư mời:
-1. Chỉnh sửa code nguồn trong thư mục `src/` (`index.html`, `style.css`, hoặc `app.js`).
-2. Chạy lệnh đóng gói:
-   ```powershell
-   node build.mjs
-   ```
-   *(Script sẽ tự động inlined toàn bộ CSS, JS và ảnh WebP thành 1 file duy nhất `dist/thiep-tot-nghiep.html`)*
-3. Nếu khởi động lại tunnel công khai:
-   ```powershell
-   python -m http.server 8089 --directory dist
-   .\cloudflared.exe tunnel --url http://127.0.0.1:8089
-   ```
